@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="#10131A" android:layout_width="match_parent" android:layout_height="match_parent">
+<LinearLayout
+    android:orientation="vertical" android:padding="22dp"
+    android:layout_width="match_parent" android:layout_height="wrap_content">
+
+    <TextView android:text="พายุจัดการไวรัสโหด" android:textColor="#FFFFFF"
+        android:textSize="28sp" android:textStyle="bold"
+        android:layout_width="match_parent" android:layout_height="wrap_content"/>
+    <TextView android:text="ศูนย์รักษาความปลอดภัยของเครื่อง"
+        android:textColor="#AEB6C6" android:textSize="15sp"
+        android:layout_marginTop="4dp" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+
+    <TextView android:id="@+id/score" android:text="สถานะ: พร้อมสแกน"
+        android:textColor="#FFFFFF" android:textSize="17sp"
+        android:gravity="center" android:background="#1B2230"
+        android:padding="18dp" android:layout_marginTop="22dp"
+        android:layout_width="match_parent" android:layout_height="wrap_content"/>
+
+    <Button android:id="@+id/scanButton" android:text="⚡ สแกนแบบโหด"
+        android:textSize="18sp" android:layout_marginTop="18dp"
+        android:layout_width="match_parent" android:layout_height="58dp"/>
+
+    <Button android:id="@+id/appsButton" android:text="📱 ตรวจแอปทั้งหมด"
+        android:layout_marginTop="10dp" android:layout_width="match_parent" android:layout_height="52dp"/>
+
+    <Button android:id="@+id/filesButton" android:text="📁 สแกนไฟล์ในเครื่อง"
+        android:layout_marginTop="10dp" android:layout_width="match_parent" android:layout_height="52dp"/>
+
+    <Button android:id="@+id/settingsButton" android:text="🔐 เปิดสิทธิ์เข้าถึงไฟล์ทั้งหมด"
+        android:layout_marginTop="10dp" android:layout_width="match_parent" android:layout_height="52dp"/>
+
+    <ProgressBar android:id="@+id/progress" android:visibility="gone"
+        android:layout_gravity="center" android:layout_marginTop="18dp"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+
+    <TextView android:id="@+id/results" android:text=""
+        android:textColor="#E7EBF2" android:textSize="15sp"
+        android:layout_marginTop="18dp" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+</LinearLayout>
+</ScrollView>
