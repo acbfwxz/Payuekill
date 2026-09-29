@@ -7,12 +7,17 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import com.google.firebase.auth.FirebaseAuth
 
 class LoginActivity : Activity() {
+
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+
+        auth = FirebaseAuth.getInstance()
 
         val email = findViewById<EditText>(R.id.email)
         val password = findViewById<EditText>(R.id.password)
@@ -20,18 +25,54 @@ class LoginActivity : Activity() {
         val registerText = findViewById<TextView>(R.id.registerText)
 
         loginButton.setOnClickListener {
-            if (email.text.isNullOrBlank() || password.text.isNullOrBlank()) {
-                Toast.makeText(this, "กรุณากรอกข้อมูลให้ครบ", Toast.LENGTH_SHORT).show()
-            } else {
-                // ตอนนี้เป็นเพียงหน้าทดลอง
-                // เดี๋ยวค่อยเชื่อม Firebase Authentication
-                startActivity(Intent(this, MainActivity::class.java))
-                finish()
+
+            val emailText = email.text.toString().trim()
+            val passwordText = password.text.toString()
+
+            if (emailText.isBlank() || passwordText.isBlank()) {
+                Toast.makeText(
+                    this,
+                    "กรุณากรอกข้อมูลให้ครบ",
+                    Toast.LENGTH_SHORT
+                ).show()
+                return@setOnClickListener
             }
+
+            loginButton.isEnabled = false
+
+            auth.signInWithEmailAndPassword(emailText, passwordText)
+                .addOnCompleteListener { task ->
+
+                    loginButton.isEnabled = true
+
+                    if (task.isSuccessful) {
+
+                        Toast.makeText(
+                            this,
+                            "เข้าสู่ระบบสำเร็จ",
+                            Toast.LENGTH_SHORT
+                        ).show()
+
+                        startActivity(
+                            Intent(this, MainActivity::class.java)
+                        )
+                        finish()
+
+                    } else {
+
+                        Toast.makeText(
+                            this,
+                            "เข้าสู่ระบบไม่สำเร็จ: ${task.exception?.message}",
+                            Toast.LENGTH_LONG
+                        ).show()
+                    }
+                }
         }
 
         registerText.setOnClickListener {
-            startActivity(Intent(this, RegisterActivity::class.java))
+            startActivity(
+                Intent(this, RegisterActivity::class.java)
+            )
         }
     }
 }
