@@ -11,18 +11,10 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="📝 สมัครสมาชิก"
+        android:text="🛡️ พายุจัดการไวรัสโหด"
         android:textSize="25sp"
         android:textStyle="bold"
-        android:layout_marginBottom="30dp"/>
-
-    <EditText
-        android:id="@+id/username"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="ชื่อผู้ใช้"
-        android:inputType="text"
-        android:layout_marginBottom="12dp"/>
+        android:layout_marginBottom="35dp"/>
 
     <EditText
         android:id="@+id/email"
@@ -38,20 +30,20 @@
         android:layout_height="wrap_content"
         android:hint="รหัสผ่าน"
         android:inputType="textPassword"
-        android:layout_marginBottom="12dp"/>
-
-    <EditText
-        android:id="@+id/confirmPassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="ยืนยันรหัสผ่าน"
-        android:inputType="textPassword"
         android:layout_marginBottom="20dp"/>
 
     <Button
-        android:id="@+id/registerButton"
+        android:id="@+id/loginButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="สมัครสมาชิก"/>
+        android:text="เข้าสู่ระบบ"/>
+
+    <TextView
+        android:id="@+id/registerText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ยังไม่มีบัญชี? สมัครสมาชิก"
+        android:textSize="16sp"
+        android:padding="20dp"/>
 
 </LinearLayout>
