@@ -52,6 +52,18 @@ class MainActivity : Activity() {
         }
     }
 
+    // เพิ่มฟังก์ชันนี้
+    private fun scanFiles() {
+        busy(true, "กำลังตรวจไฟล์ทั้งหมด...")
+        executor.execute {
+            val report = inspectFiles(Environment.getExternalStorageDirectory())
+            runOnUiThread {
+                busy(false, "ตรวจไฟล์เสร็จ")
+                results.text = report
+            }
+        }
+    }
+
     private fun scanApps() {
         busy(true, "กำลังตรวจแอปทั้งหมด...")
         executor.execute {
