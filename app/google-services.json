@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "206121061570",
+    "project_id": "payuekill",
+    "storage_bucket": "payuekill.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:206121061570:android:070b35aa584c43d44a7f5b",
+        "android_client_info": {
+          "package_name": "com.example.payukiller"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAc0q3WZe5ZS_vtjcxfxhh-EvgOoaxWIPg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
