@@ -61,3 +61,30 @@ class RegisterActivity : Activity() {
                 ).show()
                 return@setOnClickListener
             }
+
+            registerButton.isEnabled = false
+
+            auth.createUserWithEmailAndPassword(emailText, passwordText)
+                .addOnCompleteListener { task ->
+
+                    registerButton.isEnabled = true
+
+                    if (task.isSuccessful) {
+                        Toast.makeText(
+                            this,
+                            "สมัครสมาชิกสำเร็จ",
+                            Toast.LENGTH_SHORT
+                        ).show()
+
+                        finish()
+                    } else {
+                        Toast.makeText(
+                            this,
+                            "สมัครสมาชิกไม่สำเร็จ: ${task.exception?.message}",
+                            Toast.LENGTH_LONG
+                        ).show()
+                    }
+                }
+        }
+    }
+}
